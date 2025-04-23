@@ -8,7 +8,7 @@ public class EventLoop : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        //FloatingPointError();
+        //WhileLoop();
     }
 
     // Update is called once per frame
@@ -16,12 +16,12 @@ public class EventLoop : MonoBehaviour
     {
         Debug.Log($"Update: {Time.deltaTime}, {Time.fixedDeltaTime}");
     }
-
+    
     private void LateUpdate()
     {
         Debug.Log($"Late Update: {Time.deltaTime}, {Time.fixedDeltaTime}");
     }
-
+    
     private void FixedUpdate()
     {
         Debug.Log($"Fixed Update: {Time.deltaTime}, {Time.fixedDeltaTime}");
