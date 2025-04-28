@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
-public class GenericSingleton<T> : MonoBehaviour where T : GenericSingleton<T>
+public class UniversalLazySingleton : MonoBehaviour
 {
-    private static T instance;
-    public static T Instance
+    private static UniversalLazySingleton instance;
+    public static UniversalLazySingleton Instance
     {
         get
         {
@@ -16,24 +15,25 @@ public class GenericSingleton<T> : MonoBehaviour where T : GenericSingleton<T>
         }
     }
     
+    public int someData = 3;
+    
     private static void SetupInstance()
     {
         if (instance != null) return;
-        instance = FindAnyObjectByType<T>();
+        instance = FindAnyObjectByType<UniversalLazySingleton>();
         if (instance == null)
         {
-            var managerObject = GameObject.Find("@Managers");
+            var managerObject = GameObject.Find("UniversalLazySingleton");
             if (managerObject == null)
             {
                 managerObject = new GameObject
                 {
-                    name = "@Managers"
+                    name = "UniversalLazySingleton"
                 };
             }
-            instance = managerObject.AddComponent<T>();
-            DontDestroyOnLoad(managerObject);
+            instance = managerObject.AddComponent<UniversalLazySingleton>();
         }
-        else DontDestroyOnLoad(instance.gameObject);
+        DontDestroyOnLoad(instance.gameObject);
     }
     
     private void Awake()
@@ -42,4 +42,5 @@ public class GenericSingleton<T> : MonoBehaviour where T : GenericSingleton<T>
         if (Instance.gameObject != gameObject) Destroy(gameObject);
         else Destroy(this);
     }
+
 }

@@ -1,35 +1,39 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MoveTracker))]
+[RequireComponent(typeof(CommandTracker))]
 public class MoveControl : MonoBehaviour
 {
-    private MoveTracker moveTracker;
+    private CommandTracker _commandTracker;
     private void Awake()
     {
-        moveTracker = GetComponent<MoveTracker>();
+        _commandTracker = GetComponent<CommandTracker>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            moveTracker.Move(Vector2.up);
+            _commandTracker.Move(Vector2.up);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            moveTracker.Move(Vector2.down);
+            _commandTracker.Move(Vector2.down);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            moveTracker.Move(Vector2.left);
+            _commandTracker.Move(Vector2.left);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            moveTracker.Move(Vector2.right);
+            _commandTracker.Move(Vector2.right);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
-            moveTracker.Undo();
+            _commandTracker.Undo();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            _commandTracker.ChangeColor(Color.red);
         }
     }
 }

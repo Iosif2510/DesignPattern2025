@@ -5,4 +5,8 @@ public class InheritedManager : GenericSingleton<InheritedManager>
     [SerializeField] private float someData;
     
     public float SomeData => someData;
+    protected override void Init()
+    {
+        
+    }
 }

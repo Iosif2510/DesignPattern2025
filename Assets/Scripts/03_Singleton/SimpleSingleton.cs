@@ -9,7 +9,11 @@ public class SimpleSingleton : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance == null) instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
         else Destroy(gameObject);
     }
     
