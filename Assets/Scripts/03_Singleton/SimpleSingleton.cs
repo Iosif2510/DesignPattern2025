@@ -3,6 +3,8 @@ using UnityEngine;
 public class SimpleSingleton : MonoBehaviour
 {
     [SerializeField] private int someField;
+
+    private static int staticField = 5;
     
     private static SimpleSingleton instance;
     public static SimpleSingleton Instance => instance;
@@ -12,7 +14,7 @@ public class SimpleSingleton : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
         else Destroy(gameObject);
     }
@@ -25,5 +27,15 @@ public class SimpleSingleton : MonoBehaviour
     public void DoSomethingWithField()
     {
         Debug.Log($"Singleton instance's field value: {someField}");
+    }
+
+    class A
+    {
+        
+    }
+
+    private void MakeA()
+    {
+        A a = new A();
     }
 }

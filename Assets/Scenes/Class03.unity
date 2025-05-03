@@ -431,6 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555613116}
   - component: {fileID: 1555613115}
+  - component: {fileID: 1555613117}
   m_Layer: 0
   m_Name: UniversalLazySingleton
   m_TagString: Untagged
@@ -466,6 +467,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555613117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555613114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5921f565aeba4376ae5e561d08a9e0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  someData: 15
+  id: aaa
 --- !u!1 &1672061223
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +600,7 @@ GameObject:
   - component: {fileID: 2046708370}
   - component: {fileID: 2046708369}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: UndoableCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,27 +728,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2069742791}
-  - component: {fileID: 2069742790}
   - component: {fileID: 2069742792}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ComplicatedSingletonCaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &2069742790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069742789}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3294d4e405d674faced5e0e97c57fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2069742791
 Transform:
   m_ObjectHideFlags: 0

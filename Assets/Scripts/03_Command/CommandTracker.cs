@@ -3,26 +3,49 @@ using UnityEngine;
 
 public class CommandTracker : MonoBehaviour
 {
-    private Stack<ICommand> commands = new();
+    private Dictionary<Vector2, MoveCommand> moveCommands = new();
+    private Dictionary<Color, MoveCommand> colorCommands = new();
+    
+    private Stack<ICommand> undoStack = new();
+    private Stack<ICommand> redoStack = new();
     
     public void Move(Vector2 direction)
     {
-        var command = new MoveCommand(transform, direction);
+        if (!moveCommands.TryGetValue(direction, out var command))
+        {
+            command = new MoveCommand(transform, direction);
+            moveCommands.Add(direction, command);
+        }
         command.Execute();
-        commands.Push(command);
+        undoStack.Push(command);
+        redoStack.Clear();
     }
 
     public void ChangeColor(Color color)
     {
-        var command = new ChangeColorCommand(GetComponent<Renderer>(), color);
+        if (!colorCommands.TryGetValue(color, out var command))
+        {
+            command = new MoveCommand(transform, Vector2.zero);
+            colorCommands.Add(color, command);
+        }
         command.Execute();
-        commands.Push(command);
+        undoStack.Push(command);
+        redoStack.Clear();
     }
     
     public void Undo()
     {
-        if (commands.Count <= 0) return;
-        var command = commands.Pop();
+        if (undoStack.Count <= 0) return;
+        var command = undoStack.Pop();
         command.Undo();
+        redoStack.Push(command);
+    }
+
+    public void Redo()
+    {
+        if (redoStack.Count <= 0) return;
+        var command = redoStack.Pop();
+        command.Execute();
+        undoStack.Push(command);
     }
 }

@@ -6,5 +6,6 @@ public class LazySingletonCaller : MonoBehaviour
     void Awake()
     {
         Debug.Log($"Data: {UniversalLazySingleton.Instance.someData}");
+        Debug.Log($"Data: {WrongInheritedSingleton.Instance.someData}");
     }
 }

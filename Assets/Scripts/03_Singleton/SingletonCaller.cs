@@ -11,19 +11,20 @@ public class SingletonCaller : MonoBehaviour
         //     Debug.LogError("SimpleSingleton instance is null!");
         //     return;
         // }
-        SimpleSingleton.Instance?.DoSomething();
-        if (SimpleSingleton.Instance != null)
-        {
-            SimpleSingleton.Instance.DoSomethingWithField();
-        }
+        SimpleSingleton.Instance.DoSomething();
+        // SimpleSingleton.Instance?.DoSomething();
+        // if (SimpleSingleton.Instance != null)
+        // {
+        //     SimpleSingleton.Instance?.DoSomethingWithField();
+        // }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //SimpleSingleton.Instance.DoSomethingWithField();
-            SimpleSingleton.Instance?.DoSomethingWithField();
+            SimpleSingleton.Instance.DoSomethingWithField();
+            //SimpleSingleton.Instance?.DoSomethingWithField();
         }
     }
 }

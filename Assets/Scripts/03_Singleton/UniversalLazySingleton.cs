@@ -34,6 +34,12 @@ public class UniversalLazySingleton : MonoBehaviour
             instance = managerObject.AddComponent<UniversalLazySingleton>();
         }
         DontDestroyOnLoad(instance.gameObject);
+        instance.Initialize();
+    }
+
+    private void Initialize()
+    {
+        
     }
     
     private void Awake()
