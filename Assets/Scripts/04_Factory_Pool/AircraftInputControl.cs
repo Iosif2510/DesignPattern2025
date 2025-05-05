@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AircraftInputControl : MonoBehaviour
 {
-    [SerializeField] private AircraftMovement aircraftMovement;
+    [FormerlySerializedAs("aircraftBehaviour")] [SerializeField] private AircraftMovement aircraftMovement;
     
     // Update is called once per frame
     void Update()

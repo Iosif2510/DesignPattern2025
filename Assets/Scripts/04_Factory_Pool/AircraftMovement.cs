@@ -15,4 +15,6 @@ public class AircraftMovement : MonoBehaviour
         );
         transform.position = nextPosition;
     }
+    
+    public void SetSpeed(float speed) => this.speed = speed;    
 }
