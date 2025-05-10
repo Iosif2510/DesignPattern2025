@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class EnemyStraight : AircraftBrain
+public class EnemySpin : AircraftBrain
 {
     [SerializeField] private float speed;
+    [SerializeField] private float rotateSpeed;
     
-
     private void Awake()
     {
         _movement = GetComponent<AircraftMovement>();
@@ -14,5 +14,7 @@ public class EnemyStraight : AircraftBrain
     private void Update()
     {
         _movement.Move(Vector2.left);
+        transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
     }
+    
 }

@@ -377,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 9032443130463497704, guid: e32bb5303d0c049499cb8f24d35e3908, type: 3}
+  - {fileID: 9128731736492113498, guid: 48b62f3d22e7f094a800fbc7f11f4c8b, type: 3}
   enemyToCreateWithClick: Straight1
 --- !u!1 &1223804669
 GameObject:
@@ -555,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledPrefab: {fileID: 5039077155844705857, guid: 5085b366ddc80e64ca1cf0e0501c6eb6, type: 3}
-  poolSize: 10
+  poolSize: 0
 --- !u!114 &1223804676
 MonoBehaviour:
   m_ObjectHideFlags: 0
