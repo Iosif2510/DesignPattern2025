@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1029061524}
   - component: {fileID: 1029061525}
+  - component: {fileID: 1029061526}
   m_Layer: 0
   m_Name: Factory
   m_TagString: Untagged
@@ -378,7 +379,22 @@ MonoBehaviour:
   enemies:
   - {fileID: 9032443130463497704, guid: e32bb5303d0c049499cb8f24d35e3908, type: 3}
   - {fileID: 9128731736492113498, guid: 48b62f3d22e7f094a800fbc7f11f4c8b, type: 3}
-  enemyToCreateWithClick: Straight1
+  enemyToCreateWithClick: Boom
+  particlePrefab: {fileID: 1720115624091256714, guid: c9cbb9ad9286e1c4d8f57f48ba4893e4, type: 3}
+--- !u!114 &1029061526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029061523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13f265f495970a46a4d29d75eca2a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledPrefab: {fileID: 7601589058098027805, guid: c9cbb9ad9286e1c4d8f57f48ba4893e4, type: 3}
+  poolSize: 10
 --- !u!1 &1223804669
 GameObject:
   m_ObjectHideFlags: 0

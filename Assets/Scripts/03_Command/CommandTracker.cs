@@ -4,7 +4,7 @@ using UnityEngine;
 public class CommandTracker : MonoBehaviour
 {
     private Dictionary<Vector2, MoveCommand> moveCommands = new();
-    private Dictionary<Color, MoveCommand> colorCommands = new();
+    private Dictionary<Color, ChangeColorCommand> colorCommands = new();
     
     private Stack<ICommand> undoStack = new();
     private Stack<ICommand> redoStack = new();
@@ -25,7 +25,7 @@ public class CommandTracker : MonoBehaviour
     {
         if (!colorCommands.TryGetValue(color, out var command))
         {
-            command = new MoveCommand(transform, Vector2.zero);
+            command = new ChangeColorCommand(GetComponent<Renderer>(), color);
             colorCommands.Add(color, command);
         }
         command.Execute();

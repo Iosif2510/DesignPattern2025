@@ -12,16 +12,11 @@ public class EnemyFactory : Factory
         //_pool = pool;
     }
 
-    public override IProduct GetProduct(Vector3 position, Quaternion rotation)
+    public override IProduct GetProduct(Vector3 position)
     {
         var instance = Object.Instantiate(_enemyPrefab);
         //var instance = (IProduct)_pool.Release();
         instance.Initialize(position);
         return instance;
-    }
-    
-    public IProduct GetProduct(Vector3 position)
-    {
-        return GetProduct(position, _enemyPrefab.transform.rotation);
     }
 }
