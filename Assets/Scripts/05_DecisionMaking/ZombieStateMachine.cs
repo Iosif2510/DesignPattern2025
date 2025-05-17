@@ -27,7 +27,7 @@ public class ZombieStateMachine : StateMachine
 
     protected override void Update()
     {
-        if (!Action.IsAlive) TransitionTo(DeadState);
+        if (CurrentState != DeadState && !Action.IsAlive) TransitionTo(DeadState);
         base.Update();
     }
 }

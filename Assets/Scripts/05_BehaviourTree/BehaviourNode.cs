@@ -20,8 +20,6 @@ namespace BehaviourTree
             Parent = parent;
         }
 
-
-        
         public abstract NodeState Run();
     }
 

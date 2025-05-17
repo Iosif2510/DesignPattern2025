@@ -29,7 +29,10 @@ public class SimpleZombieBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Debug.Log(_navMeshAgent.remainingDistance);
+        if (state != ZombieState.Dead && !_action.IsAlive)
+        {
+            state = ZombieState.Dead;
+        }
         switch (state)
         {
             case ZombieState.Idle:
@@ -44,11 +47,13 @@ public class SimpleZombieBehaviour : MonoBehaviour
                 if (_action.TargetDistance > _action.StartTrackDistance)
                 {
                     state = ZombieState.Idle;
+                    _action.StopTrack();
                     return;
                 }
                 if (_action.TargetDistance <= _action.AttackDistance)
                 {
                     state = ZombieState.Attack;
+                    _action.StopTrack();
                     return;
                 }
                 Track();
@@ -62,6 +67,8 @@ public class SimpleZombieBehaviour : MonoBehaviour
                 Attack();
                 break;
             case ZombieState.Dead:
+                _action.StopTrack();
+                _action.Die();
                 return;
             default:
                 throw new ArgumentOutOfRangeException();
