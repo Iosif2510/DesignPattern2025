@@ -16,7 +16,7 @@ public class ZombieDeadState : IState
         _zombie.Die();
     }
 
-    public void Update()
+    public void Execute()
     {
         
     }

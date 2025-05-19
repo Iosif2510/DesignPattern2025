@@ -16,7 +16,7 @@ public class ZombieIdleState : IState
         _zombie.StopTrack();
     }
 
-    public void Update()
+    public void Execute()
     {
         if (_zombie.TargetDistance <= _zombie.StartTrackDistance)
         {

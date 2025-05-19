@@ -38,6 +38,7 @@ public class SimpleZombieBehaviour : MonoBehaviour
             case ZombieState.Idle:
                 if (_action.TargetDistance <= _action.StartTrackDistance)
                 {
+                    _attackTimer = 0f;
                     state = ZombieState.Track;
                     return;
                 }
@@ -61,6 +62,7 @@ public class SimpleZombieBehaviour : MonoBehaviour
             case ZombieState.Attack:
                 if (_action.TargetDistance > _action.AttackDistance)
                 {
+                    _attackTimer = 0f;
                     state = ZombieState.Track;
                     return;
                 }
@@ -82,7 +84,7 @@ public class SimpleZombieBehaviour : MonoBehaviour
 
     private void Track()
     {
-        _attackTimer = 0f;
+        
         _action.StartTrack();
     }
     

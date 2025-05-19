@@ -20,7 +20,7 @@ public class ZombieAttackState : IState
         _attackTimer = 0f;
     }
 
-    public void Update()
+    public void Execute()
     {
         if (_zombie.TargetDistance > _zombie.AttackDistance)
         {

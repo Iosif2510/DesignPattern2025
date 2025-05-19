@@ -22,6 +22,6 @@ public abstract class StateMachine : MonoBehaviour
 
     protected virtual void Update()
     {
-        CurrentState?.Update();
+        CurrentState?.Execute();
     }
 }

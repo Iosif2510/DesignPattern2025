@@ -13,11 +13,12 @@ public class ZombieTrackState : IState
     
     public void Enter()
     {
-        _zombie.StartTrack();
+        
     }
 
-    public void Update()
+    public void Execute()
     {
+        
         if (_zombie.TargetDistance > _zombie.StartTrackDistance)
         {
             _machine.TransitionTo(_machine.IdleState);
@@ -26,6 +27,7 @@ public class ZombieTrackState : IState
         {
             _machine.TransitionTo(_machine.AttackState);
         }
+        _zombie.StartTrack();
     }
 
     public void Exit()
