@@ -5,19 +5,21 @@ public class StateLogger : MonoBehaviour
 {
     [SerializeField] private HealthData healthData;
     int previousHealth = 100;
-    
-    // private void Update()
-    // {
-    //     var currentHealth = healthData.CurrentHealth;
-    //     if (previousHealth != currentHealth) LogHealth(currentHealth);
-    // }
 
     private void Start()
     {
         healthData.onHealthChanged += LogHealth;
+        //healthData.onHealthChanged(5);
     }
 
-    public void LogHealth(int health)
+    // private void Update()
+    // {
+    //     var currentHealth = healthData.CurrentHealth;
+    //     if (currentHealth != previousHealth) LogHealth(currentHealth);
+    //     previousHealth = currentHealth;
+    // }
+
+    private void LogHealth(int health)
     {
         Debug.Log($"Current Health: {health}");
     }

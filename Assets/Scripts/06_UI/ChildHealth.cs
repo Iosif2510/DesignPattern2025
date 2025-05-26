@@ -2,6 +2,7 @@
 {
     private void Start()
     {
+        //onHealthChanged(5);
         HealthChanged(3);
     }
 }

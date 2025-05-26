@@ -10,7 +10,7 @@ public class HealthData : MonoBehaviour
     public int CurrentHealth => currentHealth;
 
     public event UnityAction<int> onHealthChanged;
-    [SerializeField] private UnityEvent<int> onHealthChangedEvent = new();
+    public UnityEvent<int> onHealthChangedEvent = new();
 
     private void Start()
     {
