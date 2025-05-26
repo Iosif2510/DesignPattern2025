@@ -7,6 +7,8 @@ namespace BehaviourTree
     {
         private readonly TData _data;
         private readonly UnityAction<TData> _onExecute;
+
+        private readonly UnityAction onExecute;
         
         public ExecutionNode(TData data, UnityAction<TData> onExecute) : base()
         {
